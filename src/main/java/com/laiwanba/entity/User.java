@@ -6,26 +6,27 @@ import java.util.Date;
  * Created by chunmiao on 17-3-5.
  */
 public class User {
+    //用户id
     long userId;
-
+    //用户名
     String userName;
-
+    //密码
     String password;
-
+    //用户手机号
     Long userPhone;
-
+    //用户邮箱
     String userEmail;
-
+    //最近一次登录时间
     Date loginInTime;
-
+    //最近一次登出时间
     Date loginOutTime;
-
+    //用户创建时间
     Date createTime;
-
+    //用户性别
     String userSex;
-
+    //用户年龄
     int userAge;
-
+    //用户头像图片url
     String userPicUrl;
 
     public long getUserId() {
