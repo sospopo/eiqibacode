@@ -43,7 +43,7 @@ public class ActivityServiceImpl implements ActivityService{
         List<ActivityInfo> activityInfoList = new ArrayList<ActivityInfo>();
         try {
             for (Activity activity : activityList) {
-                User user = userDao.getUserById(activity.getCreatorId());
+                User user = userDao.getUserByType(activity.getCreatorId(),null,null,0);
                 String userName = user.getUserName();
                 ActivityInfo activityInfo = new ActivityInfo(activity, userName);
                 activityInfoList.add(activityInfo);

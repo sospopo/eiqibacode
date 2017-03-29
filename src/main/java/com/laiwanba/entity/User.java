@@ -29,6 +29,8 @@ public class User {
     //用户头像图片url
     String userPicUrl;
 
+    int status;
+
     public long getUserId() {
         return userId;
     }
@@ -115,6 +117,14 @@ public class User {
 
     public void setUserPicUrl(String userPicUrl) {
         this.userPicUrl = userPicUrl;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
     }
 
     @Override

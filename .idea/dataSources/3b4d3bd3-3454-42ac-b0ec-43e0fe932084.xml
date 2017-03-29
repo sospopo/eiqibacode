@@ -147,6 +147,10 @@
     </column>
     <column id="34" parent="10" name="status">
       <Position>12</Position>
+      <Comment>用户状态
+-1.锁定
+0.离线
+1.在线</Comment>
       <DataType>int(10)|0</DataType>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
     </column>

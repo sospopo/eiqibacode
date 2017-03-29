@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -30,12 +31,10 @@ public class DaoTest {
         List<Activity> activityList = activityDao.getActivityList(offset,limit);
         for(Activity activity : activityList){
             userId = activity.getCreatorId();
-            user = userDao.getUserById(userId);
+            user = userDao.getUserByType(userId,null,null,0);
             System.out.println(user);
             System.out.println(activity);
         }
-
-
     }
 
     @Test
@@ -53,6 +52,24 @@ public class DaoTest {
         }else {
             System.out.println("success!");
         }
+    }
+
+    @Test
+    public void testLoginIn(){
+        User user = new User();
+        user.setUserName("king");
+        user.setPassword("123456");
+        System.out.println(userDao.getUserByType(0,null,"844934702@qq.com",0));
+    }
+
+    @Test
+    public void testUpdateUserInfo(){
+        User user = new User();
+        user.setUserId(1L);
+        user.setUserSex("man");
+        user.setLoginOutTime(new Date());
+        user.setUserName("king");
+        System.out.println(userDao.updateUserLoginTime(user));
     }
 
 }
