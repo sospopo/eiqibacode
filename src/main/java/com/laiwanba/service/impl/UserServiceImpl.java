@@ -53,8 +53,6 @@ public class UserServiceImpl implements UserService{
                 result = comUser;
                 executeLoginInUpdate(comUser);
                 result.setStatus(1);
-                /*将返回用户数据的密码清空*/
-                result.setPassword("");
             }
         }
         return result;
@@ -76,13 +74,17 @@ public class UserServiceImpl implements UserService{
     }
     //更新登出状态
     private void executeLoginOutUpdate(User loginOutUser) {
+        int result;
         User user = new User();
         user.setLoginOutTime(new Date());
         user.setUserId(loginOutUser.getUserId());
         user.setStatus(0);
         try {
-            userDao.updateUserLoginTime(user);
+            result = userDao.updateUserLoginTime(user);
         }catch (Exception e){
+            throw new UpdateDataBaseException("更新登出操作失败！请重新登出！");
+        }
+        if (result <= 0){
             throw new UpdateDataBaseException("更新登出操作失败！请重新登出！");
         }
     }
